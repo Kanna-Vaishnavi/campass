@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { 
-  GraduationCap, 
   LayoutDashboard, 
   BookOpen, 
   Building2, 
@@ -16,7 +15,7 @@ import { useState } from 'react';
 import { useUser } from '@/context/UserContext';
 
 const navItems = [
-  { path: '/', label: 'Home', icon: GraduationCap },
+  { path: '/', label: 'Home', icon: LayoutDashboard },
   { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { path: '/practice', label: 'Practice', icon: Target },
   { path: '/resources', label: 'Resources', icon: BookOpen },
@@ -38,11 +37,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="gradient-primary rounded-lg p-2">
-            <GraduationCap className="h-6 w-6 text-primary-foreground" />
-          </div>
-          <span className="text-xl font-bold font-display">PlacePrep</span>
+
+        {/* ✅ ONLY TEXT LOGO */}
+        <Link to="/" className="flex items-center">
+          <span className="text-xl font-bold font-display">
+            Placement Prediction
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
